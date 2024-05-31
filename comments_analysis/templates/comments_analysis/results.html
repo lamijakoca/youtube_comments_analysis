@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'comments_analysis/styles.css' %}">
+</head>
+<body>
+    <h1>Top Questions</h1>
+    <table>
+        <tr>
+            <th>Question</th>
+            <th>Likes</th>
+        </tr>
+        {% for question in questions %}
+        <tr>
+            <td>{{ question.question }}</td>
+            <td>{{ question.likeCount }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div>
+        <a href="{% url 'index' %}">Go back</a>
+    </div>
+</body>
+</html>
